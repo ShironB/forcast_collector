@@ -26,7 +26,7 @@ node {
 			def InputJSON = new JsonSlurper().parseText(inputFile.text)
 		}
 		catch (Exception err) {
-			buildStatus = "FAILURE"
+			echo err.toString()
 			error("JSON validation failed")
 		}
 	}		
