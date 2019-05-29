@@ -7,6 +7,8 @@ node {
 		md5sum_from_file = sh(returnStdout: true, script: "cat MD5Sum")
 		md5sum = sh(returnStdout: true, script: "md5sum forcast_collector.py")
 		script {
+			echo md5sum
+			echo md5sum_from_file
 			if (md5sum != md5sum_from_file) {
 				buildStatus = "FAILURE"
 				error("Checksum failed")
