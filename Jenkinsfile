@@ -5,7 +5,7 @@ node {
 	}
 	stage('checksum') {
 		md5sum_from_file = sh(returnStdout: true, script: "cat MD5Sum")
-		md5sum = sh(returnStdout: true, script: "md5sum forcast_collector.py | awk '{print $1} '")
+		md5sum = sh(returnStdout: true, script: "md5sum forcast_collector.py | awk '{print \$1} '")
 		script {
 			echo md5sum
 			echo md5sum_from_file
