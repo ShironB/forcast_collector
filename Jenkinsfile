@@ -3,7 +3,7 @@
             checkout scm
         }
 		stage('checksum') {
-			md5sum_from_file = sh(returnStdout: true, script: "MD5Sum | awk '{print $1}")
+			md5sum_from_file = sh(returnStdout: true, script: "MD5Sum | awk '{print $1}'")
 			md5sum = sh(returnStdout: true, script: "md5sum forcast_collector.py")
 			script {
 				if (md5sum != md5sum_from_file) {
