@@ -1,3 +1,4 @@
+import groovy.json.JsonSlurper
 node {
 	stage ('checkout') {
 		checkout scm
@@ -16,7 +17,7 @@ node {
 		sh 'python forcast_collector.py'
 	}
 	stage('validate output') {
-		import groovy.json.JsonSlurper
+		
 		def inputFile = new File("forcast_data.json")
 		
 		try {
