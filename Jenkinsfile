@@ -16,7 +16,7 @@ node {
 		}
 	}
 	stage('run script') {
-		sh 'python forcast_collector.py'
+		sh 'python3 forcast_collector.py'
 	}
 	stage('validate output') {
 		
