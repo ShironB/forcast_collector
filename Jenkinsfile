@@ -24,7 +24,6 @@ node {
 		
 		try {
 			def InputJSON = new JsonSlurper().parseText(inputFile.text)
-			buildStatus = "SUCCESS"
 		}
 		catch (Exception err) {
 			buildStatus = "FAILURE"
