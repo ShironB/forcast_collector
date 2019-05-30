@@ -1,4 +1,8 @@
 import groovy.json.JsonSlurper
+import hudson.FilePath
+
+final GROOVY_SCRIPT = "json_script.groovy"
+
 node {
 	stage ('checkout') {
 		checkout scm
@@ -23,7 +27,8 @@ node {
 		def inputFile = new File("forcast_data.json")
 		
 		try {
-			def InputJSON = new JsonSlurper().parseText(inputFile.text)
+			evaluate(new FilePath(build.workspace, GROOVY_SCRIPT).read().text)
+			// def InputJSON = new JsonSlurper().parseText(inputFile.text)
 		}
 		catch (Exception err) {
 			echo err.toString()
